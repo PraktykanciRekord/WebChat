@@ -7,6 +7,7 @@ namespace Webchat.Areas.Identity.Pages.Account
     {
         public void OnGet()
         {
+
         }
     }
 }
