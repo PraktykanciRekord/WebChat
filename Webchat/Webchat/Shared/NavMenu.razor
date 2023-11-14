@@ -1,0 +1,27 @@
+﻿<MudAppBar Color="Color.Primary" Fixed="true" Dense="false">
+<AuthorizeView>
+    <NotAuthorized>
+        <MudText>WebChatBB</MudText>
+            <MudSpacer />
+            <MudButton Variant="Variant.Text" Href="/Identity/Account/Login" Class="m-4 pa-2" Style=@($"color:{Colors.Grey.Lighten4};")>Zaloguj się</MudButton>
+            <MudButton Variant="Variant.Text" Href="/Identity/Account/Register" Class="m-4 pa-2" Style=@($"color:{Colors.Grey.Lighten4};") >Zarejestruj</MudButton>
+
+    </NotAuthorized>
+
+    <Authorized>
+            <MudButton Variant="Variant.Text" Href="/Identity/Account/Logout" Class="m-4 pa-2" Style=@($"color:{Colors.Grey.Lighten4};")>Wyloguj</MudButton>
+    </Authorized>
+</AuthorizeView>
+</MudAppBar>
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
