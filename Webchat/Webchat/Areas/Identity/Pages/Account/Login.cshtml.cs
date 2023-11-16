@@ -21,7 +21,7 @@ namespace Webchat.Areas.Identity.Pages.Account
         public void OnGet()
         {
             ReturnUrl = Url.Content("~/");
-
+            LocalRedirect(ReturnUrl);
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -39,7 +39,6 @@ namespace Webchat.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [EmailAddress]
             public string Email { get; set; }
             [Required]
             [DataType(DataType.Password)]

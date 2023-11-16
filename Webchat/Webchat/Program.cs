@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using MudBlazor.Services;
+using Microsoft.Extensions.Configuration;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,7 +16,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddMudServices();
 
 
-var cs = builder.Configuration.GetConnectionString("Default");
+var cs = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(cs));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {

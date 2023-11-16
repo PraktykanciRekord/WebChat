@@ -24,7 +24,7 @@ namespace Webchat.Areas.Identity.Pages.Account
             ReturnUrl = Url.Content("~/");
 
         }
-        public async Task<IActionResult> onPostAync()
+        public async Task<IActionResult> OnPostAsync()
         {
             ReturnUrl = Url.Content("~/");
             if (ModelState.IsValid)
@@ -34,15 +34,18 @@ namespace Webchat.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    await _signInManager.SignInAsync(identity,isPersistent: true);
+                    await _signInManager.SignInAsync(identity, isPersistent: false);
                     return LocalRedirect(ReturnUrl);
                 }
             }
             return Page();
         }
 
+
         public class InputModel
         {
+           // [Required]
+            //public string Username { get; set; }
             [Required]
             [EmailAddress]
             public string Email { get; set; }
